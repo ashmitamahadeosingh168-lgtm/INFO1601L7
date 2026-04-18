@@ -415,29 +415,23 @@
     }
 
     function search(){
-      //get the search term from the input field
       let searchKey = document.querySelector('#searchKey').value;
       
       let results = [];
     
-      //iterate all the records in the global state
       for(let rec of state){
     
-        //capitalize the search term and text to be case insensitive
         let searchText = rec.character.toUpperCase();
         searchKey = searchKey.toUpperCase();
     
-        //add to resulting array if search term is in the text
         if ( searchText.search(searchKey) !== -1 ){
           results.push(rec);
         }
       }
 
-      //draw table with the search results
       drawTable(results);
     }
 
-    //compares the character fields of the items in the array
     function nameCompare(a, b){
       return a.character.localeCompare(b.character);
     }
